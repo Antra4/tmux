@@ -1,7 +1,8 @@
 # tmux configuration
 
 A portable tmux configuration designed to work seamlessly with Neovim and
-`christoomey/vim-tmux-navigator`. It has no tmux plugin-manager dependency.
+`christoomey/vim-tmux-navigator`. Plugins are managed with
+[`tmux-plugins/tpm`](https://github.com/tmux-plugins/tpm).
 
 ## Install
 
@@ -22,6 +23,15 @@ Then start a new tmux server or reload an existing one:
 tmux source-file ~/.config/tmux/tmux.conf
 ```
 
+Install TPM and the configured plugins on a new machine:
+
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+```
+
+Then reload the configuration and press `prefix` + `I` (capital i) to install
+`tmux-resurrect`.
+
 ## Key bindings
 
 The prefix remains tmux's default, `Ctrl-b`.
@@ -33,6 +43,8 @@ The prefix remains tmux's default, `Ctrl-b`.
 | `prefix` + `\|` | Split horizontally, preserving the working directory |
 | `prefix` + `H/J/K/L` | Resize the active pane |
 | `prefix` + `r` | Reload the configuration |
+| `prefix` + `Ctrl-s` | Save the tmux environment with tmux-resurrect |
+| `prefix` + `Ctrl-r` | Restore the saved tmux environment |
 | `prefix` + `[` | Enter copy mode |
 | `v`, then movement | Begin a copy-mode selection |
 | `y` | Copy the selection to the system clipboard |
